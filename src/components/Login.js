@@ -28,7 +28,6 @@ export function Login() {
       addUserToContext(response.data.user);
       navigate("/home");
     } catch (error) {
-      console.log(error.response.data);
       setErrorState({ message: error.response.data.errorMessage });
     }
   }

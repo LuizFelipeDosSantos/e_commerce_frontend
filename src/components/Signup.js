@@ -32,7 +32,6 @@ export function Signup() {
       console.log(response.data);
       navigate("/");
     } catch (error) {
-      console.log(error.response.data);
       setErrorState({ message: error.response.data.errorMessage });
     }
   }
