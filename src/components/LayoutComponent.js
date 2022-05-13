@@ -7,7 +7,7 @@ export function LayoutComponent() {
 
   async function logout() {
     try {
-      await axios.post(API_BASE_URL + "/user/auth/logout");
+      await axios.get(API_BASE_URL + "/user/auth/logout");
       navigate("/");
     } catch (error) {
       console.error(error);
@@ -18,22 +18,20 @@ export function LayoutComponent() {
     <div>
     {
         <>
-            <nav>
+            <nav className="navbar">
               <div>
-                <p>TRIVIAHACK</p>
+                <p>E-Commerce</p>
               </div>
     
               <>
                     <NavLink to="/home">
                         <div>
-                            <i>play_circle</i>
                             <p>Home</p>
                         </div>
                     </NavLink>
 
                     <button onClick={logout}>
                         <div>
-                            <i>logout</i>
                             <p>Logout</p>
                         </div>
                     </button>

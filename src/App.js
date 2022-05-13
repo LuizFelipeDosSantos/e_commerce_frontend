@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Login } from './components/Login';
 import { Signup } from './components/Signup';
 import { Products } from './components/Products';
-import { LayoutComponent } from './Components/LayoutComponent';
+import { LayoutComponent } from './components/LayoutComponent';
 
 function App() {
   return (
