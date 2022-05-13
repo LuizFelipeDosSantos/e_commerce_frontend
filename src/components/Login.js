@@ -24,12 +24,12 @@ export function Login() {
 
   async function loginUser() {
     try {
-      const response = await axios.post(API_BASE_URL + "/auth/login", formState);
+      const response = await axios.post(API_BASE_URL + "/user/auth/login", formState);
       addUserToContext(response.data.user);
       navigate("/home");
-    } catch (err) {
-      console.log(err.response.data);
-      setErrorState({ message: err.response.data.errorMessage });
+    } catch (error) {
+      console.log(error.response.data);
+      setErrorState({ message: error.response.data.errorMessage });
     }
   }
 

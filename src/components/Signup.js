@@ -28,12 +28,12 @@ export function Signup() {
 
   async function addNewUser() {
     try {
-      const response = await axios.post(API_BASE_URL + "/auth/signup", {user: formState});
+      const response = await axios.post(API_BASE_URL + "/user/auth/signup", {formState});
       console.log(response.data);
       navigate("/");
-    } catch (err) {
-      console.log(err.response.data);
-      setErrorState({ message: err.response.data.errorMessage });
+    } catch (error) {
+      console.log(error.response.data);
+      setErrorState({ message: error.response.data.errorMessage });
     }
   }
 
@@ -94,8 +94,8 @@ export function Signup() {
               type="password"
               name="password"
               value={formState.password}
-              title="Password must contain at least 6 characters, including at least one uppercase, one lowercase and one number."
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+              title="Password must contain at least 8 characters, including at least one uppercase, one lowercase and one number."
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               onChange={handleInput}
               autoComplete={"new-password"}
               placeholder="Enter a password"
