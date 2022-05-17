@@ -1,16 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthProviderWrapper";
 import { API_BASE_URL } from "../consts";
 
 export function AddressList() {
     const [ addressList, setAddressList] = useState([]);
+    const { user } = useContext(AuthContext);
     const navigate = useNavigate();
 
     useEffect(() => {
         async function fetchAdresses() {
             try {
-                const { data } = await axios.get(`${API_BASE_URL}/address/list`);
+                const { data } = await axios.get(`${API_BASE_URL}/user/address/list`, {userId: user._id});
                 if (!data) return;
                 const { adresses } = data;
                 setAddressList(adresses);
