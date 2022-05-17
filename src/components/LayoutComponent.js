@@ -27,7 +27,7 @@ export function LayoutComponent() {
           </div>
         </NavLink>
 
-        <NavLink to="/home">
+        <NavLink to="/address/list">
           <div>
             <p>Address</p>
           </div>

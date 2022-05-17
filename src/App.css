@@ -81,3 +81,30 @@
 .productDetailText {
   margin-left: 2vw;
 }
+
+/* ADRESSES */
+.addressList {
+  text-align: center;
+}
+
+.addressList ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 0;
+  flex-wrap: wrap;
+}
+
+.addressList li {
+  border: 1px solid;
+  border-radius: 1vw;
+  padding: 0.4vw;
+  margin: 1.5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 30vw;
+}

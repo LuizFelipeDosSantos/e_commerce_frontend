@@ -2,9 +2,12 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { Login } from './components/Login';
 import { Signup } from './components/Signup';
+import { LayoutComponent } from './components/LayoutComponent';
 import { Products } from './components/Products';
 import { ProductDetail } from './components/ProductDetail';
-import { LayoutComponent } from './components/LayoutComponent';
+import { AddressList } from './components/AddressList';
+import { CreateAddress } from './components/CreateAddress';
+import { EditAddress } from './components/EditAddress';
 
 function App() {
   return (
@@ -14,6 +17,11 @@ function App() {
       <Route element={<LayoutComponent />}>
         <Route path="/home" element={<Products />} />
         <Route path="/product-detail" element={<ProductDetail />} />
+        <Route path="/address">
+          <Route path="list" element={<AddressList />} />
+          <Route path="create" element={<CreateAddress />} />
+          <Route path="edit" element={<EditAddress />} />
+        </Route>
       </Route>
     </Routes>
   );
