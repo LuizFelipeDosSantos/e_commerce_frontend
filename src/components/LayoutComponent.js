@@ -16,31 +16,44 @@ export function LayoutComponent() {
 
   return (
     <div>
-    {
-        <>
-            <nav className="navbar">
-              <div>
-                <p>E-Commerce</p>
-              </div>
-    
-              <>
-                    <NavLink to="/home">
-                        <div>
-                            <p>Home</p>
-                        </div>
-                    </NavLink>
+      <nav className="navbar">
+        <div>
+          <p>E-Commerce</p>
+        </div>
 
-                    <button onClick={logout}>
-                        <div>
-                            <p>Logout</p>
-                        </div>
-                    </button>
-                </>
-            </nav>
+        <NavLink to="/home">
+          <div>
+            <p>Home</p>
+          </div>
+        </NavLink>
 
-            <Outlet />
-        </>
-    }
+        <NavLink to="/home">
+          <div>
+            <p>Address</p>
+          </div>
+        </NavLink>
+
+        <NavLink to="/home">
+          <div>
+            <p>Wishlist</p>
+          </div>
+        </NavLink>
+
+        <NavLink to="/home">
+          <div>
+            <p>Cart</p>
+          </div>
+        </NavLink>
+
+        <button onClick={logout}>
+          <div>
+            <p>Logout</p>
+          </div>
+        </button>
+
+    </nav>
+
+      <Outlet />
     </div>
   );
 }

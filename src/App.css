@@ -38,7 +38,46 @@
 }
 
 .navbar {
+  background-color: darkseagreen;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+/* HOME */
+.productList {
+  text-align: center;
+}
+
+.productList ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 0;
+  flex-wrap: wrap;
+}
+
+.productList li {
+  border: 1px solid;
+  border-radius: 1vw;
+  padding: 0.4vw;
+  margin: 1.5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 30vw;
+}
+
+/* PRODUCT DETAIL */
+.productDetail {
+  display: flex;
+  flex-direction: row;
+  margin: 2vw;
+}
+
+.productDetailText {
+  margin-left: 2vw;
 }
