@@ -13,7 +13,7 @@ export function AddressList() {
     useEffect(() => {
         async function fetchAdresses() {
             try {
-                const { data } = await axios.get(`${API_BASE_URL}/user/address/list`, {userId: user._id});
+                const { data } = await axios.get(`${API_BASE_URL}/user/address/list`,  {params: {userId: user._id}});
                 if (!data) return;
                 const { adresses } = data;
                 setAddressList(adresses);

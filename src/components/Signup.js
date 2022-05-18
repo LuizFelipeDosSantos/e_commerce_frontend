@@ -28,7 +28,7 @@ export function Signup() {
 
   async function addNewUser() {
     try {
-      const response = await axios.post(API_BASE_URL + "/user/auth/signup", {formState});
+      const response = await axios.post(`${API_BASE_URL}/user/auth/signup`, {formState});
       console.log(response.data);
       navigate("/");
     } catch (error) {

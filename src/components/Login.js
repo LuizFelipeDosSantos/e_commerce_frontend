@@ -24,7 +24,8 @@ export function Login() {
 
   async function loginUser() {
     try {
-      const response = await axios.post(API_BASE_URL + "/user/auth/login", formState);
+      const response = await axios.post(`${API_BASE_URL}/user/auth/login`, formState);
+      console.log(response.data.user);
       addUserToContext(response.data.user);
       navigate("/home");
     } catch (error) {
