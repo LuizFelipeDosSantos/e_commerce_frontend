@@ -24,6 +24,16 @@ export function AddressList() {
         fetchAdresses();
     }, []);
 
+    async function deleteAddress(addressId) {
+        try {
+            const response = await axios.delete(`${API_BASE_URL}/user/address/delete`, {params: {addressId, userId: user._id}});
+            console.log(response.data);
+            setAddressList(addressList.filter((address) => address._id !== addressId));
+        } catch (error) {
+            console.log(error.response.data.errorMessage);
+        }
+      }
+
     return ( 
         <div className="addressList">
             <div>
@@ -42,6 +52,7 @@ export function AddressList() {
                                     <h4>{address.city}</h4>
                                     <h4>{address.country}</h4>
                                     <button onClick={ () => navigate("/address/edit", { state: { address } }) }>Edit</button>
+                                    <button onClick={ () => deleteAddress(address._id) }>Delete</button>
                                 </div>
                             </li>
                         )
