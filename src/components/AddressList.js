@@ -41,10 +41,12 @@ export function AddressList() {
                                     <h4>{address.zipCode}</h4>
                                     <h4>{address.city}</h4>
                                     <h4>{address.country}</h4>
+                                    <button onClick={ () => navigate("/address/edit", { state: { address } }) }>Edit</button>
                                 </div>
                             </li>
                         )
-                    })}
+                    })
+                    }
             </ul>
             <button onClick={ () => navigate("/address/create") }>Create Address</button>
         </div>

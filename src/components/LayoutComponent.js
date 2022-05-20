@@ -29,7 +29,7 @@ export function LayoutComponent() {
 
         <NavLink to="/address/list">
           <div>
-            <p>Address</p>
+            <p>Adresses</p>
           </div>
         </NavLink>
 
