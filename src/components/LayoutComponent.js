@@ -33,7 +33,7 @@ export function LayoutComponent() {
           </div>
         </NavLink>
 
-        <NavLink to="/home">
+        <NavLink to="/wishlist">
           <div>
             <p>Wishlist</p>
           </div>

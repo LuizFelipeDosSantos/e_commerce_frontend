@@ -8,6 +8,7 @@ import { ProductDetail } from './components/ProductDetail';
 import { AddressList } from './components/AddressList';
 import { CreateAddress } from './components/CreateAddress';
 import { EditAddress } from './components/EditAddress';
+import { Wishlist } from './components/Wishlist';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="create" element={<CreateAddress />} />
           <Route path="edit" element={<EditAddress />} />
         </Route>
+        <Route path="wishlist" element={<Wishlist />} />
       </Route>
     </Routes>
   );

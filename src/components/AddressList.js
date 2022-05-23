@@ -32,7 +32,7 @@ export function AddressList() {
         } catch (error) {
             console.log(error.response.data.errorMessage);
         }
-      }
+    }
 
     return ( 
         <div className="addressList">
