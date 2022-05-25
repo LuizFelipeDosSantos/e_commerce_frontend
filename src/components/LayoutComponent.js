@@ -17,13 +17,9 @@ export function LayoutComponent() {
   return (
     <div>
       <nav className="navbar">
-        <div>
-          <p>E-Commerce</p>
-        </div>
-
         <NavLink to="/home">
           <div>
-            <p>Home</p>
+            <p>E-Commerce</p>
           </div>
         </NavLink>
 
@@ -39,9 +35,15 @@ export function LayoutComponent() {
           </div>
         </NavLink>
 
-        <NavLink to="/home">
+        <NavLink to="/cart">
           <div>
             <p>Cart</p>
+          </div>
+        </NavLink>
+
+        <NavLink to="/home">
+          <div>
+            <p>Orders</p>
           </div>
         </NavLink>
 

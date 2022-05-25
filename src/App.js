@@ -9,6 +9,7 @@ import { AddressList } from './components/AddressList';
 import { CreateAddress } from './components/CreateAddress';
 import { EditAddress } from './components/EditAddress';
 import { Wishlist } from './components/Wishlist';
+import { Cart } from './components/Cart';
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
           <Route path="create" element={<CreateAddress />} />
           <Route path="edit" element={<EditAddress />} />
         </Route>
-        <Route path="wishlist" element={<Wishlist />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/cart" element={<Cart />} />
       </Route>
     </Routes>
   );
