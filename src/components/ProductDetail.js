@@ -9,6 +9,7 @@ export function ProductDetail() {
     const location = useLocation();
     const { user } = useContext(AuthContext);
     const [ product, setProduct] = useState([]);
+    const [ quantity, setQuantity] = useState(1);
     const [ isInWishlist, setIsInWishlist] = useState(false);
 
     useEffect(() => {
@@ -26,7 +27,7 @@ export function ProductDetail() {
         setProduct(location.state);
     }, []);
 
-    async function addProductWishlist(product) {
+    async function addProductWishlist() {
         try {
             const response = await axios.post(`${API_BASE_URL}/user/wishlist/add`, {product, userId: user._id});
             setIsInWishlist(true);
@@ -36,14 +37,23 @@ export function ProductDetail() {
         }
     }
 
-    async function removeProductWishlist(productId) {
+    async function removeProductWishlist() {
         try {
-            const response = await axios.delete(`${API_BASE_URL}/user/wishlist/remove`, {params: {productId, userId: user._id}});
+            const response = await axios.delete(`${API_BASE_URL}/user/wishlist/remove`, {params: {productId: product._id, 
+                                                                                                  userId: user._id}});
             setIsInWishlist(false);
             console.log(response.data);
         } catch (error) {
             console.log(error.response.data.errorMessage);
         }
+    }
+
+    async function addProductCart() {
+        console.log('TO DO');
+    }
+
+    function handleInput(event) {
+        setQuantity(event.target.value);  
     }
 
     return ( 
@@ -63,6 +73,17 @@ export function ProductDetail() {
                     <button onClick={ () => isInWishlist ? removeProductWishlist(product._id) 
                                                          : addProductWishlist(product) }>
                                     { isInWishlist ? "Remove from Wishlist" : "Add to Wishlist"}</button>
+
+                    <br/>
+                    <button onClick={ () => setQuantity(quantity - 1) }> - </button>
+                    <input 
+                        type="number"
+                        name="quantity"
+                        value={quantity}
+                        onChange={handleInput}
+                    />
+                    <button onClick={ () => setQuantity(quantity + 1) }> + </button>
+                    <button onClick={ () => addProductCart() }> Add to Cart </button>
                 </div>
             }
         </div>
