@@ -49,7 +49,16 @@ export function ProductDetail() {
     }
 
     async function addProductCart() {
-        console.log('TO DO');
+        try {
+            const response = await axios.post(`${API_BASE_URL}/shopping/cart/addProduct`,
+                                               {userId: user._id,
+                                                product,
+                                                quantity,
+                                                amount: Math.round((quantity * product.price) * 100) / 100});
+            console.log(response.data);
+        } catch (error) {
+            console.log(error.response.data.errorMessage);
+        }
     }
 
     function handleInput(event) {

@@ -14,7 +14,7 @@ export function Cart() {
             try {
                 const { data } = await axios.get(`${API_BASE_URL}/shopping/cart`,  {params: {userId: user._id}});
                 if (!data) return;
-                const { items } = data;
+                const { items } = data.cart;
                 setCartProducts(items);
             } catch (error) {
                 console.log(error.response.data.errorMessage);
