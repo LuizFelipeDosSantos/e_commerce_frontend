@@ -44,9 +44,39 @@
   justify-content: space-between;
 }
 
+.divFormDefault {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.formDefault {
+  padding: 1vw;
+  border: 2px solid;
+  border-radius: 1vw;
+  box-shadow: 5px 10px #888888;
+}
+
+.divFormDefault input{
+  width: 30vw;
+}
+
+.divFormDefault button{
+  width: 30vw;
+}
+
 /* HOME */
+.productCard img {
+  background-color: white;
+  height: 40vh;
+  object-fit: contain;
+}
+
 .productList {
   text-align: center;
+  padding: 1vw;
 }
 
 .productList ul {

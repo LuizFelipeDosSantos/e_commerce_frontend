@@ -3,6 +3,8 @@ import { useState, useContext } from "react";
 import { API_BASE_URL } from "../consts";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProviderWrapper";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 export function Login() {
   const navigate = useNavigate();
@@ -35,9 +37,40 @@ export function Login() {
 
   return (
     <div>
-      <div>
-        <h2>Log in</h2>
-        <form onSubmit={handleSubmit}>
+      <div className="divFormDefault">
+        <br/>
+        <h2>E-Commerce</h2>
+        <br/>
+        <br/>
+
+        <Form className="formDefault" onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formGroupEmail">
+            <Form.Label>Email:</Form.Label>
+            <Form.Control 
+              type="email"
+              name="email"
+              autoComplete="email"
+              value={formState.email}
+              onChange={handleInput}
+              placeholder="Enter your Email" />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formGroupPassword">
+            <Form.Label>Password:</Form.Label>
+            <Form.Control 
+              type="password"
+              name="password"
+              autoComplete={"current-password"}
+              value={formState.password}
+              onChange={handleInput}
+              placeholder="Enter your Password" />
+          </Form.Group>
+          <div className="d-grid gap-2">
+            <Button variant="primary" type="submit" size="lg">Log In</Button>
+            <Button href="/signup" style={{backgroundColor: 'orange'}}>Sign up</Button>
+          </div>
+        </Form>
+
+        {/* <form onSubmit={handleSubmit}>
 
           <div>
             <label>Email:</label>
@@ -66,7 +99,7 @@ export function Login() {
             Not registered yet? <a href="/signup">Join E-Commerce</a>
           </p>
           <button type="submit"> Log in </button>
-        </form>
+        </form> */}
         {errorState && <h2>{errorState.message}</h2>}
       </div>
     </div>
