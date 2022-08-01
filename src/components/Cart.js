@@ -4,6 +4,10 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProviderWrapper";
 import { API_BASE_URL } from "../consts";
+import Card from 'react-bootstrap/Card';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
 
 export function Cart() {
     const navigate = useNavigate(); 
@@ -37,8 +41,38 @@ export function Cart() {
         }
     }
 
-    return ( 
-        <div className="productList">
+    return (
+        <>  
+            <div className="productList"> 
+                <h2>Cart</h2>
+                <br/>
+                <br/>
+                <Row xs={1} md={3} className="g-4">
+                    {cartProducts &&
+                        cartProducts.map((cartProduct) => {
+                            return (
+                                <Col key={cartProduct._id}>
+                                    <Card bg="warning" className="productCard">
+                                        <Card.Img variant="top" src={cartProduct.product.imgUrl}/>
+                                        <Card.Body>
+                                            <Card.Title>{cartProduct.product.name}</Card.Title>
+                                            <Card.Text>Quantity: {cartProduct.quantity}</Card.Text>
+                                            <Card.Text>Amount: €{cartProduct.product.price * cartProduct.quantity}</Card.Text>
+                                        </Card.Body>
+                                        <Link to={"/product-detail"} state={ cartProduct.product } class="stretched-link"></Link>
+                                    </Card>
+                                    <Button variant="danger" onClick={ () => removeProductCart(cartProduct.product._id,
+                                                                                               cartProduct.product.price * cartProduct.quantity) }>Remove from Cart</Button>
+                                </Col>
+                            )
+                        })}
+                </Row>
+                {cartProducts.length > 0 &&
+                    <Button variant="success" onClick={ () => navigate("/checkout") }>Checkout</Button>
+                }
+            </div>    
+        </>
+        /*<div className="productList">
             <div>
                 <h2>Cart</h2>
             </div>
@@ -67,6 +101,6 @@ export function Cart() {
             {cartProducts.length > 0 &&
                 <button onClick={ () => navigate("/checkout") }>Checkout</button>
             }
-        </div>
+        </div>*/
      )
 }

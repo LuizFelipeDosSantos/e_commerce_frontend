@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthProviderWrapper";
 import { API_BASE_URL } from "../consts";
 import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 export function Orders() {
     const [ orderList, setOrderList] = useState([]);
@@ -57,9 +58,9 @@ export function Orders() {
                                                     </li>
                                                 )
                                             })}
-                                            <button onClick={() => setOrderIdShowItems('')}> Close Items </button>    
+                                            <Button variant="primary" onClick={() => setOrderIdShowItems('')}> Close Items </Button>
                                         </div>
-                                    :   <button onClick={() => setOrderIdShowItems(order._id)}> Show Items </button>}
+                                    :   <Button variant="primary" onClick={() => setOrderIdShowItems(order._id)}> Show Items </Button>}
                                 </div>
                             </li>
                         )

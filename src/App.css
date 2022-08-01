@@ -115,6 +115,7 @@
 /* ADRESSES */
 .addressList {
   text-align: center;
+  padding: 1vw
 }
 
 .addressList ul {
@@ -137,4 +138,8 @@
   align-items: center;
   justify-content: center;
   max-width: 30vw;
+}
+
+.addressList li button {
+  margin: 5px;
 }

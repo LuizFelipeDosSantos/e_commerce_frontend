@@ -25,8 +25,7 @@ export function Products() {
 
     return ( 
         <>  
-            <div className="productList">
-                <br/>     
+            <div className="productList"> 
                 <h2>Products</h2>
                 <br/>
                 <br/>
@@ -34,8 +33,8 @@ export function Products() {
                     {productList &&
                         productList.map((product) => {
                             return (
-                                <Col>
-                                    <Card key={product._id} bg="warning" className="productCard">
+                                <Col key={product._id}>
+                                    <Card bg="warning" className="productCard">
                                         <Card.Img variant="top" src={product.imgUrl}/>
                                         <Card.Body>
                                             <Card.Title>{product.name}</Card.Title>

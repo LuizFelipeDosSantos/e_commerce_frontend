@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProviderWrapper";
 import { API_BASE_URL } from "../consts";
+import Button from 'react-bootstrap/Button';
 
 export function AddressList() {
     const [ addressList, setAddressList] = useState([]);
@@ -34,32 +35,31 @@ export function AddressList() {
         }
     }
 
-    return ( 
-        <div className="addressList">
-            <div>
+    return (
+        <>
+            <div className="addressList">
                 <h2>Adresses</h2>
+                <ul>
+                    {addressList &&
+                        addressList.map((address) => {
+                            return (
+                                <li key={address._id}>
+                                    <div>
+                                        <h4>{address.street}</h4>
+                                        <h4>{address.number}</h4>
+                                        <h4>{address.zipCode}</h4>
+                                        <h4>{address.city}</h4>
+                                        <h4>{address.country}</h4>
+                                        <Button variant="warning" onClick={ () => navigate("/address/edit", { state: { address } }) }>Edit</Button>
+                                        <Button variant="danger" onClick={ () => deleteAddress(address._id) }>Delete</Button>
+                                    </div>
+                                </li>
+                            )
+                        })
+                        }
+                </ul>
+                <Button variant="success" onClick={ () => navigate("/address/create") }>Create Address</Button>
             </div>
-
-            <ul>
-                {addressList &&
-                    addressList.map((address) => {
-                        return (
-                            <li key={address._id}>
-                                <div>
-                                    <h4>{address.street}</h4>
-                                    <h4>{address.number}</h4>
-                                    <h4>{address.zipCode}</h4>
-                                    <h4>{address.city}</h4>
-                                    <h4>{address.country}</h4>
-                                    <button onClick={ () => navigate("/address/edit", { state: { address } }) }>Edit</button>
-                                    <button onClick={ () => deleteAddress(address._id) }>Delete</button>
-                                </div>
-                            </li>
-                        )
-                    })
-                    }
-            </ul>
-            <button onClick={ () => navigate("/address/create") }>Create Address</button>
-        </div>
+        </>
      )
 }

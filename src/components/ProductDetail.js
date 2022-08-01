@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { AuthContext } from "../context/AuthProviderWrapper";
 import { API_BASE_URL } from "../consts";
+import Button from 'react-bootstrap/Button';
 
 export function ProductDetail() {
     const location = useLocation();
@@ -74,25 +75,27 @@ export function ProductDetail() {
                             <img src={product.imgUrl} alt="product img" width={200}/>
                         </div>
                         <div className="productDetailText">
-                            <h3>Name: {product.name}</h3>
-                            <h3>Description: {product.description}</h3>
-                            <h3>Price: €{product.price}</h3>
+                            <h3>{product.name}</h3>
+                            <br/>
+                            <h4>{product.description}</h4>
+                            <br/>
+                            <h4>Price: €{product.price}</h4>
                         </div>
                     </div>
-                    <button onClick={ () => isInWishlist ? removeProductWishlist(product._id) 
+                    <Button variant={ isInWishlist ? "danger" : "success"} onClick={ () => isInWishlist ? removeProductWishlist(product._id) 
                                                          : addProductWishlist(product) }>
-                                    { isInWishlist ? "Remove from Wishlist" : "Add to Wishlist"}</button>
-
+                                    { isInWishlist ? "Remove from Wishlist" : "Add to Wishlist"}</Button>
                     <br/>
-                    <button onClick={ () => setQuantity(quantity - 1) }> - </button>
-                    <input 
+                    <br/>
+                    <Button onClick={ () => setQuantity(quantity - 1) }> - </Button>
+                    <input
                         type="number"
                         name="quantity"
                         value={quantity}
                         onChange={handleInput}
                     />
-                    <button onClick={ () => setQuantity(quantity + 1) }> + </button>
-                    <button onClick={ () => addProductCart() }> Add to Cart </button>
+                    <Button onClick={ () => setQuantity(quantity + 1) }> + </Button>
+                    <Button variant="success" onClick={ () => addProductCart() }> Add to Cart </Button>
                 </div>
             }
         </div>
